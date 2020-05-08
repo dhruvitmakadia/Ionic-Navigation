@@ -13,9 +13,7 @@ export class ViewMessagePage implements OnInit {
 
   constructor(
     private data: DataService,
-    private activatedRoute: ActivatedRoute,
-    private router: Router,
-    private location: Location
+    private activatedRoute: ActivatedRoute
   ) { }
 
   ngOnInit() {
@@ -27,9 +25,5 @@ export class ViewMessagePage implements OnInit {
     const win = window as any;
     const mode = win && win.Ionic && win.Ionic.mode;
     return mode === 'ios' ? 'Inbox' : '';
-  }
-
-  goBack() {
-    this.location.back();
   }
 }
