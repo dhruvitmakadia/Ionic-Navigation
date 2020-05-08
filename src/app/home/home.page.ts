@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { DataService, Message } from '../services/data.service';
+import { Platform } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -7,7 +8,19 @@ import { DataService, Message } from '../services/data.service';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  constructor(private data: DataService) {}
+
+  subscription: any;
+
+  constructor(
+    private data: DataService,
+    private platform: Platform
+  ) { }
+
+  ionViewDidEnter() {
+    this.subscription = this.platform.backButton.subscribe(() => {
+      navigator['app'].exitApp();
+    });
+  }
 
   refresh(ev) {
     setTimeout(() => {
@@ -19,4 +32,7 @@ export class HomePage {
     return this.data.getMessages();
   }
 
+  ionViewWillLeave() {
+    this.subscription.unsubscribe();
+  }
 }

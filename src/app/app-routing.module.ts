@@ -15,6 +15,10 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'reply',
+    loadChildren: () => import('./reply/reply.module').then( m => m.ReplyPageModule)
+  },
 ];
 
 @NgModule({

@@ -19,10 +19,11 @@
           <ion-note>{{ message.date }}</ion-note>
         </span>
       </h2>
-      <h3>To: <ion-note>Me</ion-note></h3>
+      <h3>To: <ion-note>Me</ion-note>
+      </h3>
     </ion-label>
   </ion-item>
-  
+
   <div class="ion-padding">
     <h1>{{ message.subject }}</h1>
     <p>
@@ -30,3 +31,12 @@
     </p>
   </div>
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar color="primary">
+    <ion-button fill="clear" expand="full" color="light" (click)="selectMedia()">
+      <ion-icon slot="start" name="chatbubbles"></ion-icon>
+      Reply
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>
