@@ -16,12 +16,6 @@ export class HomePage {
     private platform: Platform
   ) { }
 
-  // ionViewDidEnter() {
-  //   this.subscription = this.platform.backButton.subscribe(() => {
-  //     navigator['app'].exitApp();
-  //   });
-  // }
-
   refresh(ev) {
     setTimeout(() => {
       ev.detail.complete();
@@ -32,7 +26,4 @@ export class HomePage {
     return this.data.getMessages();
   }
 
-  // ionViewWillLeave() {
-  //   this.subscription.unsubscribe();
-  // }
 }

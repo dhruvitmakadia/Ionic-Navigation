@@ -4,6 +4,7 @@ import { Platform, IonRouterOutlet, ToastController } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -22,7 +23,8 @@ export class AppComponent {
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     private toastController: ToastController,
-    private router: Router
+    private router: Router,
+    private location: Location
   ) {
     this.backButtonEvent();
     this.initializeApp();
@@ -30,7 +32,8 @@ export class AppComponent {
 
   initializeApp() {
     this.platform.ready().then(() => {
-      this.statusBar.styleDefault();
+      this.statusBar.backgroundColorByHexString('#3880ff');
+      this.statusBar.styleLightContent();
       this.splashScreen.hide();
     });
   }
@@ -51,7 +54,7 @@ export class AppComponent {
             const toast = await this.toastController.create({
               message: 'Press back again to exit App.',
               duration: 2000,
-              position: 'middle'
+              position: 'bottom'
             });
             toast.present();
             // console.log(JSON.stringify(toast));
@@ -60,5 +63,11 @@ export class AppComponent {
         }
       });
     });
+  }
+
+  swipe(event) {
+    if (event.direction === 4) {
+      this.location.back();
+    }
   }
 }
