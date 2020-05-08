@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DataService, Message } from '../services/data.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-view-message',
@@ -12,7 +13,9 @@ export class ViewMessagePage implements OnInit {
 
   constructor(
     private data: DataService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private router: Router,
+    private location: Location
   ) { }
 
   ngOnInit() {
@@ -24,5 +27,9 @@ export class ViewMessagePage implements OnInit {
     const win = window as any;
     const mode = win && win.Ionic && win.Ionic.mode;
     return mode === 'ios' ? 'Inbox' : '';
+  }
+
+  goBack() {
+    this.location.back();
   }
 }
