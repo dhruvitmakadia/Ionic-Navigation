@@ -16,7 +16,7 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'reply',
+    path: 'reply/:id',
     loadChildren: () => import('./reply/reply.module').then( m => m.ReplyPageModule)
   },
 ];

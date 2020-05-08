@@ -16,11 +16,11 @@ export class HomePage {
     private platform: Platform
   ) { }
 
-  ionViewDidEnter() {
-    this.subscription = this.platform.backButton.subscribe(() => {
-      navigator['app'].exitApp();
-    });
-  }
+  // ionViewDidEnter() {
+  //   this.subscription = this.platform.backButton.subscribe(() => {
+  //     navigator['app'].exitApp();
+  //   });
+  // }
 
   refresh(ev) {
     setTimeout(() => {
@@ -32,7 +32,7 @@ export class HomePage {
     return this.data.getMessages();
   }
 
-  ionViewWillLeave() {
-    this.subscription.unsubscribe();
-  }
+  // ionViewWillLeave() {
+  //   this.subscription.unsubscribe();
+  // }
 }
