@@ -1,9 +1,33 @@
-<ion-header>
+<ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>reply</ion-title>
+    <ion-title mode=ios>
+      Reply
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content [fullscreen]="true" *ngIf="message">
+  <ion-item>
+    <ion-label class="ion-text-wrap">
+      <h2>
+        From: Me
+      </h2>
+      <h2>To: <ion-note>{{ message.fromName }}</ion-note>
+      </h2>
+    </ion-label>
+  </ion-item>
 
+  <div class="ion-padding">
+    <h1>Mesaage Body :</h1>
+    <textarea rows="10" placeholder="Write Your Message Here..."></textarea>
+  </div>
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar color="primary">
+    <ion-button fill="clear" expand="full" color="light" [routerLink]="'/home'">
+      Send
+      <ion-icon slot="end" name="send"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

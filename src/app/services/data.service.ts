@@ -57,7 +57,7 @@ export class DataService {
     },
     {
       fromName: 'Thor',
-      subject: 'The god of thunder',
+      subject: 'The God Of Thunder',
       date: 'Last Week',
       id: 6,
       read: false

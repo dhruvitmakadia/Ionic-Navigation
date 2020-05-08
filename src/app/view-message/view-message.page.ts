@@ -10,7 +10,7 @@ import { Location } from '@angular/common';
 })
 export class ViewMessagePage implements OnInit {
   public message: Message;
-
+  public id: number;
   constructor(
     private data: DataService,
     private activatedRoute: ActivatedRoute
@@ -18,6 +18,8 @@ export class ViewMessagePage implements OnInit {
 
   ngOnInit() {
     const id = this.activatedRoute.snapshot.paramMap.get('id');
+    // tslint:disable-next-line: radix
+    this.id = parseInt(id);
     this.message = this.data.getMessageById(parseInt(id, 10));
   }
 
